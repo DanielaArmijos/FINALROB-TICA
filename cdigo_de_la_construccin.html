@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="es">
+<head>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<link rel="stylesheet" type="text/css" href="content.css" />
+<link rel="stylesheet" type="text/css" href="nav.css" />
+<meta http-equiv="content-type" content="text/html;  charset=utf-8" />
+<title>Código de la Construcción | EDUCALIGHT </title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta name="author" content="Proyecto Final" />
+<link rel="license" type="text/html" href="http://creativecommons.org/licenses/by-sa/4.0/" />
+<meta name="generator" content="eXeLearning 2.9 - exelearning.net" />
+<!--[if lt IE 9]><script type="text/javascript" src="exe_html5.js"></script><![endif]-->
+<script type="text/javascript" src="exe_jquery.js"></script>
+<script type="text/javascript" src="common_i18n.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+<body class="exe-web-site" id="exe-node-13"><script type="text/javascript">document.body.className+=" js"</script>
+<div id="content">
+<p id="skipNav"><a href="#main" class="sr-av">Saltar la navegación</a></p>
+<header id="header" ><div id="headerContent">EDUCALIGHT</div></header>
+<nav id="siteNav">
+<ul>
+   <li><a href="index.html" class="daddy main-node">Inicio</a></li>
+   <li><a href="introduccin.html" class="daddy">INTRODUCCIÓN</a>
+   <ul class="other-section">
+      <li><a href="planificacin.html" class="no-ch">Planificación</a></li>
+   </ul>
+   </li>
+   <li><a href="semana_1_introduccin_a_la_robtica_y_a_la_plataforma_tinkercad.html" class="daddy">Semana 1: Introducción a la robótica y a la plataforma Tinkercad.</a>
+   <ul class="other-section">
+      <li><a href="contenido_terico.html" class="no-ch">Contenido Teórico</a></li>
+      <li><a href="actividad.html" class="no-ch">Actividad</a></li>
+   </ul>
+   </li>
+   <li><a href="semana_2_comprensin_de_matrices_y_simulacin_del_cubo_led_4x4_en_tinkercad.html" class="daddy">Semana 2: Comprensión de matrices y simulación del Cubo LED 4x4 en Tinkercad.</a>
+   <ul class="other-section">
+      <li><a href="contenido_terico0.html" class="no-ch">Contenido Teórico</a></li>
+      <li><a href="ejemplo.html" class="no-ch">Ejemplo</a></li>
+   </ul>
+   </li>
+   <li class="current-page-parent"><a href="semana_3_diseo_fsico_del_cubo_recorte_estructura_y_soldadura.html" class="current-page-parent daddy">Semana 3: Diseño físico del cubo, recorte, estructura y soldadura</a>
+   <ul>
+      <li id="active"><a href="cdigo_de_la_construccin.html" class="active no-ch">Código de la Construcción</a></li>
+      <li><a href="construccin_tinkercad.html" class="no-ch">Construcción Tinkercad</a></li>
+      <li><a href="propuesta_del_proyecto.html" class="no-ch">Propuesta del Proyecto</a></li>
+   </ul>
+   </li>
+   <li><a href="semana_4_conexin_programacin_final_del_patrn_led_y_presentacin_del_proyecto.html" class="daddy">Semana 4: Conexión, programación final del patrón LED, y presentación del proyecto</a>
+   <ul class="other-section">
+      <li><a href="construccin_fsico.html" class="no-ch">Construcción Físico</a></li>
+   </ul>
+   </li>
+   <li><a href="anexos.html" class="no-ch">ANEXOS</a></li>
+</ul>
+</nav>
+<div id='topPagination'>
+<nav class="pagination noprt">
+<a href="semana_3_diseo_fsico_del_cubo_recorte_estructura_y_soldadura.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="construccin_tinkercad.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+<div id="main-wrapper">
+<section id="main">
+<header id="nodeDecoration"><h1 id="nodeTitle">Código de la Construcción</h1></header>
+<article class="iDevice_wrapper textIdevice em_iDevice" id="id52">
+<div class="iDevice emphasis1" >
+<header class="iDevice_header iDevice_header_noIcon"><h1 class="iDeviceTitle">PASOS A SEGUIR</h1></header>
+<div class="iDevice_inner">
+<div class="iDevice_content_wrapper">
+<div id="ta52_128_2" class="block iDevice_content">
+<div class="exe-text"><p style="text-align: center;"><strong>SIMULACIÓN EN TINKERCAD</strong></p>
+<p><img src="img0.5.png" width="373" height="373" alt="TINKERD" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>Código:</p>
+<p>int Columnas[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};<br />int Filas[] = {16, 17, 18, 19};</p>
+<p><br />// Configuración inicial<br />void setup() {<br />  for (int i = 0; i &lt; 16; i++) {<br />    pinMode(Columnas[i], OUTPUT);<br />    digitalWrite(Columnas[i], LOW);<br />  }<br />  for (int i = 0; i &lt; 4; i++) {<br />    pinMode(Filas[i], OUTPUT);<br />    digitalWrite(Filas[i], LOW);<br />  }<br />}</p>
+<p><br />// Encender LED en coordenadas (x, y, z)<br />void encenderLED(int x, int y, int z, int tiempo) {<br />  int col = y * 4 + x; // Conversión (x, y) a índice de columna<br />  digitalWrite(Columnas[col], HIGH);<br />  digitalWrite(Filas[z], HIGH);<br />  delay(tiempo);<br />  digitalWrite(Columnas[col], LOW);<br />  digitalWrite(Filas[z], LOW);<br />}</p>
+<p><br />// Apagar todo<br />void apagarTodo() {<br />  for (int i = 0; i &lt; 16; i++) digitalWrite(Columnas[i], LOW);<br />  for (int i = 0; i &lt; 4; i++) digitalWrite(Filas[i], LOW);<br />}</p>
+<p></p>
+<p></p>
+<p><br />// Figura: cubo que crece<br />void cuboLatente() {<br />  for (int r = 0; r &lt; 2; r++) {<br />    for (int i = 0; i &lt; 40; i++) {<br />      encenderLED(1, 1, 1, 2);<br />    }</p>
+<p><br />    for (int i = 0; i &lt; 40; i++) {<br />      encenderLED(1, 1, 1, 1);<br />      encenderLED(2, 1, 1, 1);<br />      encenderLED(1, 2, 1, 1);<br />      encenderLED(1, 1, 2, 1);<br />      encenderLED(2, 2, 1, 1);<br />      encenderLED(2, 1, 2, 1);<br />      encenderLED(1, 2, 2, 1);<br />      encenderLED(2, 2, 2, 1);<br />    }<br />  }<br />}</p>
+<p><br />// Figura: lluvia descendente<br />void lluviaVertical() {<br />  for (int ciclo = 0; ciclo &lt; 40; ciclo++) {<br />    int x = random(0, 4);<br />    int y = random(0, 4);</p>
+<p><br />    for (int z = 3; z &gt;= 0; z--) {<br />      encenderLED(x, y, z, 40);<br />    }<br />    delay(50);<br />  }<br />}</p>
+<p><br />// Figura: cubo parpadeante<br />void parpadeoCubo() {<br />  for (int r = 0; r &lt; 2; r++) {<br />    for (int z = 0; z &lt; 4; z++) {<br />      for (int y = 0; y &lt; 4; y++) {<br />        for (int x = 0; x &lt; 4; x++) {<br />          encenderLED(x, y, z, 1);<br />        }<br />      }<br />    }<br />    delay(200);<br />    apagarTodo();<br />    delay(200);<br />  }<br />}</p>
+<p></p>
+<p><br />// LOOP PRINCIPAL<br />void loop() {<br />  <br />  parpadeoCubo();<br /> <br />  <br />  lluviaVertical();  // Lluvia agregada como animación final<br />}</p></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<div id="packageLicense" class="cc cc-by-sa">
+<p><span>Obra publicada con</span> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Reconocimiento Compartir igual 4.0</a></p>
+</div>
+</section>
+</div>
+<div id='bottomPagination'>
+<nav class="pagination noprt">
+<a href="semana_3_diseo_fsico_del_cubo_recorte_estructura_y_soldadura.html" class="prev"><span><span>&laquo; </span>Anterior</span></a> <span class="sep">| </span><a href="construccin_tinkercad.html" class="next"><span>Siguiente<span> &raquo;</span></span></a>
+</nav>
+</div>
+</div>
+<p id="made-with-eXe"><a href="https://exelearning.net/" target="_blank" rel="noopener"><span>Creado con eXeLearning<span> (Ventana nueva)</span></span></a></p><script type="text/javascript" src="_style_js.js"></script></body></html>
